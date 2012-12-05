@@ -27,9 +27,6 @@
         // create a mutable array of the business names at the specific index of the locations array
         businesses = [[NSMutableArray alloc] initWithObjects:@"Aztech Designs", @"MoonSoft", @"Magic Paintballers", @"Beach Bowling", @"Crazy Ink", @"Anise's Flowers", @"Gambino's Pizza", @"Cozy Lodge Inn", @"Ronald's Tires", @"Ko Casino Resort", nil];
         
-        // duplicate the data in an unmutable format
-        masterBusinessRecord = [[NSArray alloc] initWithObjects:@"Aztech Designs", @"MoonSoft", @"Magic Paintballers", @"Beach Bowling", @"Crazy Ink", @"Anise's Flowers", @"Gambino's Pizza", @"Cozy Lodge Inn", @"Ronald's Tires", @"Ko Casino Resort", nil];
-        
         // create an NSNumber object for each city's business latitude and longitude
         NSNumber *houstonLat = [[NSNumber alloc] initWithFloat:29.7631f];
         NSNumber *houstonLon = [[NSNumber alloc] initWithFloat:-95.3631f];
@@ -67,8 +64,6 @@
         // create a mutable array of the business locations lat and lon values array
         businessCoords = [[NSMutableArray alloc] initWithObjects:houston, dallas, orlando, miami, losangeles, sacremento, newyork, seattle, chicago, lasvegas, nil];
         
-        // set the masterCoordinate array (this will always retain all of the coordinates)
-        masterCoordRecord = [[NSArray alloc] initWithObjects:houston, dallas, orlando, miami, losangeles, sacremento, newyork, seattle, chicago, lasvegas, nil];
     }
     return self;
 }
@@ -188,7 +183,7 @@
 -(NSArray *)retrieveCoordList
 {
     // create an array to house the coordinates and business name arrays
-    NSArray *mapDetails = [[NSArray alloc] initWithObjects:masterCoordRecord, masterBusinessRecord, nil];
+    NSArray *mapDetails = [[NSArray alloc] initWithObjects:businessCoords, businesses, nil];
     
     // return the map data to the second View
     return mapDetails;

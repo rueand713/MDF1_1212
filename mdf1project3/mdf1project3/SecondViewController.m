@@ -18,12 +18,40 @@
     if (self) {
         self.title = NSLocalizedString(@"Second", @"Second");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        
+        // set the firstload to true
+        firstLoad = YES;
     }
     return self;
 }
 							
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // check if this is the first load of the map
+    // if it is there are no annotations to remove so this condition will be skipped
+    // if it isn't the first load there are previous annotations that should be removed to update the map
+    if (firstLoad == NO)
+    {
+        // since it isn't the first load, check if there are any annotations stored in the array
+        // if there are remove them
+        if (annotationsList != nil && [annotationsList count] > 0)
+        {
+            // remove the annotations
+            [completeMap removeAnnotations:annotationsList];
+        }
+    }
+    else if (firstLoad == YES)
+    {
+        // set the first load to false now since it is now loaded at least once
+        firstLoad = NO;
+    }
+    
     // fetch the map data needed from the first view
     // stores it in an global array object for access in other functions
     coordsList = [mapDelegate retrieveCoordList];
@@ -35,7 +63,7 @@
     
     // create an array to house the annotations that will be dynamically
     // created via the arrays and a for-loop
-    NSMutableArray *annotationsList = [[NSMutableArray alloc] init];
+    annotationsList = [[NSMutableArray alloc] init];
     
     // set the span data
     MKCoordinateSpan span;
@@ -45,7 +73,7 @@
     // set the region data
     MKCoordinateRegion region;
     region.span = span;
-
+    
     // loops through the number of locations dynamically creating a CLLocationCoordinate2d object
     // and map annotation then stores it into an array until the loop ends. The array of annotations will then be
     // added to the map view
@@ -80,16 +108,15 @@
         }
         
     }
-
+    
     // verifies that the annotionList array is indeed created with objects
     if (annotationsList != nil)
     {
         // adds the annotations from the array to the map view
         [completeMap addAnnotations:annotationsList];
     }
-        
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [super viewDidAppear:true];
 }
 
 - (void)didReceiveMemoryWarning

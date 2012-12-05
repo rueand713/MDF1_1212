@@ -22,8 +22,14 @@
     // outlet for the fullscreen map
     IBOutlet MKMapView *completeMap;
     
-    // will hold the passed in data from the delgate
+    // will hold the passed in data from the delegate
     NSArray *coordsList;
+    
+    // holdes an array of annotations
+    NSMutableArray *annotationsList;
+    
+    // keep track of whether the map has been annotated before
+    BOOL firstLoad;
     
     id<mapgram> mapDelegate;
 }

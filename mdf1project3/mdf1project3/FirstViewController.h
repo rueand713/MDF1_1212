@@ -22,11 +22,6 @@
     NSMutableArray *businessLocations;
     NSMutableArray *businesses;
     NSMutableArray *businessCoords;
-    
-    // these will be copies of the mutable variants for use in passing
-    // unmodified data back to the second view
-    NSArray *masterCoordRecord;
-    NSArray *masterBusinessRecord;
 }
 
 // the click handler for the edit and done buttons
