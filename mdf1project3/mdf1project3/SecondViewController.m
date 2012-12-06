@@ -16,7 +16,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Second", @"Second");
+        // set the tab title string
+        self.title = NSLocalizedString(@"Map View", @"Second");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
         
         // set the firstload to true

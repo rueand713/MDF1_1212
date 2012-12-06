@@ -25,8 +25,8 @@
 {
     // set the map info labels text (business name, lat, & lon)
     businessName.text = [[NSString alloc] initWithFormat:@"%@ (%@)", nameText, locText];
-    businessLat.text = [[NSString alloc] initWithFormat:@"Latitude: %f", latitude];
-    businessLon.text = [[NSString alloc] initWithFormat:@"Longitude: %f", longitude];
+    businessLat.text = [[NSString alloc] initWithFormat:@" Latitude: %f", latitude];
+    businessLon.text = [[NSString alloc] initWithFormat:@" Longitude: %f", longitude];
     
     // create a span object and set it to a very close zoom
     MKCoordinateSpan span;

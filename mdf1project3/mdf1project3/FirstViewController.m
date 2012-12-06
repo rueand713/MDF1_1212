@@ -18,7 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
+        // set the tab title string
+        self.title = NSLocalizedString(@"Table View", @"First");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
         
         // create a mutable array of the business locations
