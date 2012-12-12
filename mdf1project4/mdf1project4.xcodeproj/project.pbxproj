@@ -24,6 +24,8 @@
 		83F678B11677A6A900C4B01A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F678B01677A6A900C4B01A /* second@2x.png */; };
 		83F678B41677A6A900C4B01A /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F678B21677A6A900C4B01A /* FirstViewController.xib */; };
 		83F678B71677A6A900C4B01A /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F678B51677A6A900C4B01A /* SecondViewController.xib */; };
+		83F678C41677D13E00C4B01A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F678C21677D13E00C4B01A /* ThirdViewController.m */; };
+		83F678C51677D13E00C4B01A /* ThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F678C31677D13E00C4B01A /* ThirdViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,9 @@
 		83F678B01677A6A900C4B01A /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		83F678B31677A6A900C4B01A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
 		83F678B61677A6A900C4B01A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		83F678C11677D13E00C4B01A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		83F678C21677D13E00C4B01A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		83F678C31677D13E00C4B01A /* ThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				83F678B21677A6A900C4B01A /* FirstViewController.xib */,
 				83F678B51677A6A900C4B01A /* SecondViewController.xib */,
 				83F678931677A6A900C4B01A /* Supporting Files */,
+				83F678C11677D13E00C4B01A /* ThirdViewController.h */,
+				83F678C21677D13E00C4B01A /* ThirdViewController.m */,
+				83F678C31677D13E00C4B01A /* ThirdViewController.xib */,
 			);
 			path = mdf1project4;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 				83F678B11677A6A900C4B01A /* second@2x.png in Resources */,
 				83F678B41677A6A900C4B01A /* FirstViewController.xib in Resources */,
 				83F678B71677A6A900C4B01A /* SecondViewController.xib in Resources */,
+				83F678C51677D13E00C4B01A /* ThirdViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,7 @@
 				83F6789D1677A6A900C4B01A /* AppDelegate.m in Sources */,
 				83F678A61677A6A900C4B01A /* FirstViewController.m in Sources */,
 				83F678AD1677A6A900C4B01A /* SecondViewController.m in Sources */,
+				83F678C41677D13E00C4B01A /* ThirdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"First", @"First");
+        self.title = NSLocalizedString(@"XML Items", @"First");
         self.tabBarItem.image = [UIImage imageNamed:@"first"];
     }
     return self;
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     // create the URL object
-    url = [[NSURL alloc] initWithString:@"http://www.fullsail.com"];
+    url = [[NSURL alloc] initWithString:@"http://w1.weather.gov/xml/current_obs/KIAH.xml"];
     
     if (url != nil)
     {
@@ -40,9 +40,11 @@
             connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             
             // create the mutable data object
-            requestData = [NSMutableData data];
+            //requestData = [NSMutableData data];
         }
     }
+    
+    listTitles = [[NSArray alloc] initWithObjects:@"Location", @"Conditions", @"Temperature", @"Humidity", @"Wind", @"Dewpoint", @"Visibility", @"Longitude", @"Latitude", @"Station ID", @"Credit", nil];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
@@ -74,11 +76,75 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-   NSString *requestString = [[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding];
+   requestString = [[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding];
     
     if (requestString != nil)
     {
         NSLog(@"%@", requestString);
+        
+        // create the NSXMLParser object with the full data from the request
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:requestData];
+        
+        if (parser != nil)
+        {
+            // set the delegate handler to the viewcontroller (self)
+            [parser setDelegate:self];
+            
+            // begin the parsing of the xml
+            [parser parse];
+        }
+        
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+{
+    // set the currentElement member to the elementName in rotation for
+    // character capturing
+    currentElement = elementName;
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if ([currentElement isEqualToString: @"location"])
+    {
+        location = string;
+    }
+    else if ([currentElement isEqualToString: @"latitude"])
+    {
+        lat = string;
+    }
+    else if ([currentElement isEqualToString: @"longitude"])
+    {
+        lon = string;
+    }
+    else if ([currentElement isEqualToString: @"observation_time"])
+    {
+        updateTime = string;
+    }
+    else if ([currentElement isEqualToString: @"weather"])
+    {
+        conditions = string;
+    }
+    else if ([currentElement isEqualToString: @"temperature_string"])
+    {
+        temp = string;
+    }
+    else if ([currentElement isEqualToString: @"relative_humidity"])
+    {
+        humidity = string;
+    }
+    else if ([currentElement isEqualToString: @"wind_string"])
+    {
+        wind = string;
+    }
+    else if ([currentElement isEqualToString: @"dewpoint_string"])
+    {
+        dewpoint = string;
+    }
+    else if ([currentElement isEqualToString: @"visibility_mi"])
+    {
+        visibility = string;
     }
 }
 

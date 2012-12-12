@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ThirdViewController.h
 //  mdf1project4
 //
 //  Created by Rueben Anderson on 12/11/12.
@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface ThirdViewController : UIViewController
 {
-    IBOutlet UITextView *textView;
+    
 }
+
+- (IBAction)onClick:(id)sender;
 
 @end
