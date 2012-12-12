@@ -10,9 +10,15 @@
 
 @interface ThirdViewController : UIViewController
 {
+    IBOutlet UITextView *myTextView;
+    IBOutlet UILabel *titleLabel;
     
+    NSString *text;
+    NSString *cityText;
 }
 
 - (IBAction)onClick:(id)sender;
 
+@property (assign) NSString *text;
+@property (assign) NSString *cityText;
 @end

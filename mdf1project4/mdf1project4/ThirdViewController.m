@@ -14,6 +14,8 @@
 
 @implementation ThirdViewController
 
+@synthesize text, cityText;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,6 +27,12 @@
 
 - (void)viewDidLoad
 {
+    // set the textView text to the passed in text from the previous view
+    myTextView.text = text;
+    
+    // set the label text
+    titleLabel.text = cityText;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

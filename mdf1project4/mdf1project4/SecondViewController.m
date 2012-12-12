@@ -14,6 +14,8 @@
 
 @implementation SecondViewController
 
+@synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,22 +32,21 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // fetch the request string from the first tab
+    NSString *text = [delegate xmlDataString];
+    
+    // set the textView text to the fetched in request string
+    textView.text = text;
+    
+    [super viewDidAppear:true];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)onClick:(id)sender
-{
-    // create a button object from the sender
-    UIButton *button = (UIButton *)sender;
-    
-    if (button != nil)
-    {
-        // dismiss this detail view and return to the tableView
-        [self dismissViewControllerAnimated:true completion:nil];
-    }
 }
 
 @end
